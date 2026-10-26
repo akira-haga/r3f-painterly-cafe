@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The loading screen is printed on this, and it is also one of the three
+         files the scene loads. Without the preload it queues behind the 9.2MB
+         bake and the overlay sits on flat grey. -->
+    <link rel="preload" as="image" href="/textures/paper.jpg" />
+    <title>r3f-painterly-cafe</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

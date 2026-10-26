@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Production notes — kept local, not published
+_3d_assets/*.md
+
+# Blender auto-backups
+*.blend1
+
+# Raw 8K bake — too large for GitHub (138 MiB)
+_3d_assets/Cafe_Bake.hdr
