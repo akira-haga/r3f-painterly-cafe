@@ -1,5 +1,14 @@
 # React + TypeScript + Vite
 
+## Setup
+
+```sh
+npm ci
+npm run dev
+```
+
+Use `npm ci` rather than `npm install` so `package-lock.json` is installed as-is and not rewritten.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
