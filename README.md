@@ -19,7 +19,7 @@ The scene is modeled and light-baked in Blender, then painted in real time with 
 
 1. Install dependencies
 ```
-npm install
+npm ci
 ```
 
 2. Start the development server
