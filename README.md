@@ -1,82 +1,36 @@
-# React + TypeScript + Vite
+# R3F Painterly Cafe
 
-## Setup
+A web application that renders a 3D cafe scene as a painting, built using React Three Fiber (R3F) and Three.js (WebGPU / TSL).
 
-```sh
+The scene is modeled and light-baked in Blender, then painted in real time with an anisotropic Kuwahara filter and hand-drawn-style outlines. Moving the cursor leaves brush strokes on the canvas.
+
+## Demo
+
+- [View Demo](https://r3f-painterly-cafe.vercel.app/)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- A browser with WebGPU support (add `?webgl` to the URL to fall back to WebGL2)
+
+### Installation
+
+1. Install dependencies
+```
 npm ci
+```
+
+2. Start the development server
+```
 npm run dev
 ```
 
-Use `npm ci` rather than `npm install` so `package-lock.json` is installed as-is and not rewritten.
+3. Open ```http://localhost:5173``` in your browser.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 3D Assets
 
-Currently, two official plugins are available:
+The Blender source file is in `_3d_assets/Models.blend` (Blender 5.2).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The raw 8K light bake (`_3d_assets/Cafe_Bake.hdr`) is not included because it exceeds GitHub's file size limit, so the bake texture shows as missing when you open the file. The denoised bake used by the app is in `public/textures/Cafe_Bake.png`.
