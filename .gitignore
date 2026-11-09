@@ -29,5 +29,5 @@ _3d_assets/*.md
 # Blender auto-backups
 *.blend1
 
-# Raw 8K bake — too large for GitHub (138 MiB)
+# Raw 8K bake — too large for GitHub
 _3d_assets/Cafe_Bake.hdr

@@ -19,14 +19,14 @@ export default defineConfig([
       globals: globals.browser,
     },
     rules: {
-      // Three.js/r3f のパスや material は元々ミュータブルで、
-      // useMemo で生成したインスタンスを直接書き換えるのが正しい使い方のため無効化
+      // Three.js/r3f objects such as materials are mutable by design, and
+      // mutating an instance created in useMemo is the intended pattern.
       'react-hooks/immutability': 'off',
     },
   },
   {
-    // TSL(three/tsl) のノードは型がメソッドチェーン(.mul/.add/.toVar など)を
-    // 十分に表現できず any 前提になるため、effects 配下のみ no-explicit-any を無効化
+    // TSL (three/tsl) node types can't fully express method chains like
+    // .mul/.add/.toVar, so the effects code relies on any. Allowed here only.
     files: ['src/effects/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',

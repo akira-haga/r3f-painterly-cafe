@@ -42,10 +42,10 @@ export function Model({ lowQuality = false }: { lowQuality?: boolean }) {
   const { nodes } = useGLTF("/models/Cafe.glb");
   // The 8K bake downscaled to 4K (the raw 8K Cafe_Bake.hdr lives in _3d_assets).
   // Kuwahara crushes away anything 8K carried, so the picture barely changes
-  // while VRAM drops ~358MB → ~89MB (RGBA8 + mips). The download is ~15MB at
-  // 4K; an 8K PNG was 49MB. VRAM is the one that
-  // matters: integrated GPUs choke there first. The bake margin is 32px at 8K,
-  // so 16px survives and the island edges don't bleed.
+  // while VRAM drops ~358MB → ~89MB (RGBA8 + mips) and the download shrinks
+  // too. VRAM is the one that matters: integrated GPUs choke there first. The
+  // bake margin is 32px at 8K, so 16px survives and the island edges don't
+  // bleed.
   //
   // Staying PNG is deliberate. JPEG cut the 2026-09-18 bake from 9.6MB to 2.3MB, but
   // Kuwahara amplifies block noise on flat walls and the outline Sobel picks it
